@@ -1,0 +1,10 @@
+You will be redirected to Freento Analytics and Report service in few seconds
+
+<form method="post" action="<?php echo Mage::helper('freento_aconnector')->getServiceConnectionUrl() ?>" name="connectionForm">
+    <?php foreach($this->getData() as $k => $v): ?>
+    <input type="hidden" name="<?php echo $k ?>" value="<?php echo $v ?>" />
+    <?php endforeach ?>
+</form>
+<script type="text/javascript">
+    document.connectionForm.submit();
+</script>

@@ -54,6 +54,12 @@ abstract class Freento_Aconnector_Model_Report_Abstract extends Mage_Core_Model_
             throw new Exception('Incorrect date to');
         }
         $this->_dateTo = $dateTo;
+        
+        /* Increase date to for 1 day, because end day should be included in select */
+        $format = Freento_Aconnector_Helper_Data::DATETIME_FORMAT;
+        $d = DateTime::createFromFormat($format, $dateTo);
+        $this->_dateTo = $d->modify('+1 day')->format($format);
+        
         return $this;
     }
     

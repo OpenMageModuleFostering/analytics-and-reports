@@ -2,7 +2,7 @@
 <config>
     <modules> 
         <Freento_Aconnector>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Freento_Aconnector>
     </modules>
     <global>
@@ -19,7 +19,16 @@
         <models>
             <freento_aconnector>
                 <class>Freento_Aconnector_Model</class>
+                <resourceModel>freento_aconnector_resource</resourceModel>
             </freento_aconnector>
+            <freento_aconnector_resource>
+                <class>Freento_Aconnector_Model_Resource</class>
+                <entities>
+                    <keys>
+                        <table>freento_aconnector_keys</table>
+                    </keys>
+                </entities>
+            </freento_aconnector_resource>
         </models>
         <resources>
             <freento_aconnector_setup>
@@ -64,15 +73,6 @@
             </adminhtml>
         </routers>
     </admin>
-    <adminhtml>
-        <layout>
-            <updates>
-                <freento_aconnector>
-                    <file>freento_aconnector.xml</file>
-                </freento_aconnector>
-            </updates>
-        </layout>
-    </adminhtml>
     <default>
         <aconnector>
             <global>

@@ -34,7 +34,6 @@ class Freento_Aconnector_Model_Report_DaysForTheFirstPurchase extends Freento_Ac
                 array('total' => 'days', 'qty' => 'COUNT(days)')
             )
             ->group('days')
-            ->order('days', 'DESC')
         ;
         
         $this->_prepareSort();    

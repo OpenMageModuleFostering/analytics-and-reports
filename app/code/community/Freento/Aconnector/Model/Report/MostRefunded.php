@@ -9,6 +9,7 @@ class Freento_Aconnector_Model_Report_MostRefunded extends Freento_Aconnector_Mo
         $this->getSelect()
             ->from(array($this->_mainTablePrefix => $this->_getTable('sales/order_item')),
                 array(
+                    'percent' => 'sum(qty_refunded) / sum(qty_invoiced) * 100',
                     'qty' => 'sum(qty_refunded)',
                     'total' => 'sum(base_amount_refunded)',
                     'sku',

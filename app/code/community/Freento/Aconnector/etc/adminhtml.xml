@@ -7,6 +7,13 @@
             </all>
             <admin>
                 <children>
+                    <report>
+                        <children>
+                            <freento_aconnector>
+                                <title>Freento - Connector to Service</title>
+                            </freento_aconnector>
+                        </children>
+                    </report>
                     <system>
                         <children>
                             <config>
@@ -22,4 +29,15 @@
             </admin>
         </resources>
     </acl>
+    <menu>
+        <report translate="title" module="freento_aconnector">
+            <children>
+                <freento_aconnector translate="title" module="freento_aconnector">
+                    <title><![CDATA[Analytics &amp; Reports]]></title>
+                    <sort_order>200</sort_order>
+                    <action>adminhtml/freentoaconnectoradmin_service/connect</action>
+                </freento_aconnector>
+            </children>
+        </report>
+    </menu>
 </config>

@@ -6,8 +6,9 @@ class Freento_Aconnector_Controller_Abstract extends Mage_Core_Controller_Front_
     protected function _prepareEncodedResponse($body)
     {
         $encryptor = new Freento_Aconnector_Crypt();
-        $key = Mage::getStoreConfig('aconnector/global/generate_keys');
-        return $this->getResponse()->setBody($encryptor->encrypt($key, $body, false));
+        $keyModel = Mage::getModel('freento_aconnector/keys');
+        
+        return $this->getResponse()->setBody($encryptor->encrypt($keyModel->getPrivateKey(), $body, false));
     }
     
     

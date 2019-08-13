@@ -1,7 +1,15 @@
 <?php
 class Freento_Aconnector_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    const DATETIME_FORMAT = 'Y-m-d H:i:s';
 
+    const CONNECTION_URL = 'https://analytics.freento.com/connect';
+    
+    public static function getServiceConnectionUrl()
+    {
+        return self::CONNECTION_URL;
+    }
+    
     public function getExtensionVersion()
     {
         return Mage::getConfig()->getModuleConfig('Freento_Aconnector')->version;

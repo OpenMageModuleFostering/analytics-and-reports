@@ -4,7 +4,7 @@ class Freento_Aconnector_Model_Report_RefundsPercent extends Freento_Aconnector_
     protected function _mysqlRequest()
     {
         $this->_fromParams = array(
-            'refunds_percent' => 'IF(SUM(qty_invoiced), SUM(qty_refunded) / SUM(qty_invoiced) * 100, 0)',
+            'refunds_percent' => 'IF(SUM(row_invoiced), SUM(amount_refunded) / SUM(row_invoiced) * 100, 0)',
             'total_invoiced' => 'SUM(row_invoiced)',
             'total_refunded' => 'SUM(amount_refunded)'
         );

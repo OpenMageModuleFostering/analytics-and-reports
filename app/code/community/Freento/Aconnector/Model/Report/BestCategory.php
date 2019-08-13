@@ -16,12 +16,12 @@ class Freento_Aconnector_Model_Report_BestCategory extends Freento_Aconnector_Mo
             ->join(
                 array('ccp' => Mage::getSingleton('core/resource')->getTableName('catalog/category_product')),
                 'ccp.product_id = ' . $this->_mainTablePrefix . '.product_id',
-                array('category_id')
+                array()
             )
             ->join(
                 array('ccev' =>Mage::getSingleton('core/resource')->getTableName('catalog_category_entity_varchar')),
                 'ccev.entity_id = ccp.category_id',
-                array('category_name' => 'value')
+                array('category_name_id' => 'CONCAT(value, " (ID: ", category_id, ")")')
             )
             ->group('ccp.category_id')
         ;
