@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <freento translate="label" module="freento_aconnector">
+            <label>Freento</label>
+            <sort_order>101</sort_order>
+        </freento>
+    </tabs>
+    <sections>
+        <aconnector translate="label" module="freento_aconnector">
+            <label>Connector</label>
+            <tab>freento</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>99</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <global translate="label">
+                    <label>Settings</label>
+                    <expanded>1</expanded>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment></comment>
+                        </enabled>
+                        <generate_keys translate="button_label">
+                            <button_label>Generate Keys</button_label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>freento_aconnector/adminhtml_system_config_form_generateKeys</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </generate_keys>
+                        <log_enabled translate="label">
+                            <label>Enable Log</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment></comment>
+                        </log_enabled>
+                    </fields>
+                </global>
+            </groups>
+        </aconnector>
+    </sections>
+</config>

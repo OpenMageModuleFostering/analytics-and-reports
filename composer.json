@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/analytics-and-reports",
+    "type": "magento-module",
+    "license": "Freento.com-license",
+    "homepage": "",
+    "description": "Freento Analytics & Reports extension for Magento. Allows to analyze live Magento store",
+    "authors": [
+    {
+        "name": "Freento.com",
+        "email": "support@freento.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
