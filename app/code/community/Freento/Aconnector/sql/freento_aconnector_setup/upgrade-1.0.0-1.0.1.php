@@ -19,9 +19,9 @@ $table = $installer->getConnection()
         'default' => '',
         ), 'Private Key')
     ->addForeignKey(
-        $installer->getFkName('admin_user', 'user_id', 'freento_aconnector_keys','user_id'),
+        $installer->getFkName('admin/user', 'user_id', 'freento_aconnector/keys', 'user_id'),
         'user_id',
-        $installer->getTable('admin_user'), 
+        $installer->getTable('admin/user'), 
         'user_id',
         Varien_Db_Ddl_Table::ACTION_CASCADE, 
         Varien_Db_Ddl_Table::ACTION_CASCADE

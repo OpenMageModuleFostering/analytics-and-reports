@@ -15,8 +15,7 @@ class Freento_Aconnector_Adminhtml_Freentoaconnectoradmin_ServiceController exte
         $block = $this->getLayout()->createBlock('adminhtml/template', 'freento_aconnector.connection_form')->setTemplate('freento/aconnector/connect.phtml');
         
         $block->setData(array(
-            'store_url' => Mage::getBaseUrl(),
-            'admin_url' => Mage::helper('adminhtml')->getUrl('*/*/return'),
+            'store_url' => $this->_getStoreUrl(),
             'username' => $keyModel->getUser()->getUsername(),
             'email' => $keyModel->getUser()->getEmail(),
             'user_id' => $keyModel->getUser()->getId(),
@@ -30,20 +29,20 @@ class Freento_Aconnector_Adminhtml_Freentoaconnectoradmin_ServiceController exte
         $this->getResponse()->setBody($block->toHtml());
     }
     
-    public function returnAction()
-    {
-        $helper = Mage::helper('freento_aconnector');
-        
-        Mage::getSingleton('adminhtml/session')->addError($helper->__('We were unable to connect you to our service. Please, try again or contact support: <a class="email" href="mailto:support@analytics.freento.com">support@analytics.freento.com</a>'));
-        
-        $this->loadLayout();
-        $this->renderLayout();
-    }
-    
     protected function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('report/freento_aconnector');
     }
     
+    protected function _getStoreUrl()
+    {
+        $defaultStoreId =  Mage::app()
+            ->getWebsite(true)
+            ->getDefaultGroup()
+            ->getDefaultStoreId()
+        ;
+        
+        return Mage::app()->getStore($defaultStoreId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+    }
     
 }
