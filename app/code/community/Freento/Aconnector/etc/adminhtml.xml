@@ -34,8 +34,8 @@
             <children>
                 <freento_aconnector translate="title" module="freento_aconnector">
                     <title><![CDATA[Analytics &amp; Reports]]></title>
-                    <sort_order>200</sort_order>
-                    <action>adminhtml/freentoaconnectoradmin_service/connect</action>
+                    <sort_order>0</sort_order>
+                    <action>adminhtml/aconnector_service/connect</action>
                 </freento_aconnector>
             </children>
         </report>

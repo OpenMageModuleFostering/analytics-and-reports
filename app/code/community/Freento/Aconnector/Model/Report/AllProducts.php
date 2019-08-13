@@ -36,6 +36,7 @@ class Freento_Aconnector_Model_Report_AllProducts extends Freento_Aconnector_Mod
                     'inner',
                     Mage_Core_Model_App::ADMIN_STORE_ID
                 )
+                ->addWebsiteNamesToResult()
             ;
             
             $this->_select = $this->_collection->getSelect();
@@ -55,6 +56,8 @@ class Freento_Aconnector_Model_Report_AllProducts extends Freento_Aconnector_Mod
                     $formattedData[$key] = htmlentities(substr($record, 0, 150));
                 } elseif(is_null($record)) {
                     $formattedData[$key] = '';
+                } elseif(is_array($record)) {
+                    $formattedData[$key] = implode(',', $record);
                 } else {
                     $formattedData[$key] = 'not available';
                 }

@@ -6,14 +6,15 @@ class Freento_Aconnector_Model_Report_Bestsellers extends Freento_Aconnector_Mod
     
     protected function _mysqlRequest()
     {
+        $this->_fromParams = array(
+            'qty' => 'sum(qty_invoiced) - sum(qty_refunded)',
+            'total' => 'sum(base_row_invoiced) - sum(base_amount_refunded)',
+            'sku',
+            'name'
+        );
         $this->getSelect()
             ->from(array($this->_mainTablePrefix => $this->_getTable('sales/order_item')),
-                array(
-                    'qty' => 'sum(qty_invoiced) - sum(qty_refunded)',
-                    'total' => 'sum(qty_invoiced*price) - sum(qty_refunded*price) - sum(base_discount_invoiced)',
-                    'sku',
-                    'name'
-                )
+                $this->_fromParams
             )
             ->group('sku');
         $this->_prepareSort();

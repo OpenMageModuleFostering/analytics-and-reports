@@ -1,6 +1,6 @@
 <?php
 
-class Freento_Aconnector_Adminhtml_Freentoaconnectoradmin_ServiceController extends Mage_Adminhtml_Controller_Action
+class Freento_Aconnector_Adminhtml_Aconnector_ServiceController extends Mage_Adminhtml_Controller_Action
 {
     
     public function connectAction()
@@ -12,10 +12,15 @@ class Freento_Aconnector_Adminhtml_Freentoaconnectoradmin_ServiceController exte
             $publicKey = $keyModel->generateKeys();
         }
         
+        $adminSecret = Mage::helper('core')->encrypt($this->_getStoreUrl() . '#' . $keyModel->getUser()->getId());
+        
         $block = $this->getLayout()->createBlock('adminhtml/template', 'freento_aconnector.connection_form')->setTemplate('freento/aconnector/connect.phtml');
         
         $block->setData(array(
             'store_url' => $this->_getStoreUrl(),
+            'admin_secret' => $adminSecret,
+            'admin_url' => Mage::helper('adminhtml')->getUrl('*/*/return'),
+            'referer_url' => base64_encode($this->_getRefererUrl()),
             'username' => $keyModel->getUser()->getUsername(),
             'email' => $keyModel->getUser()->getEmail(),
             'user_id' => $keyModel->getUser()->getId(),
@@ -27,6 +32,14 @@ class Freento_Aconnector_Adminhtml_Freentoaconnectoradmin_ServiceController exte
         }
         
         $this->getResponse()->setBody($block->toHtml());
+    }
+    
+    public function returnAction()
+    {
+        if(!$url = base64_decode($this->getRequest()->getParam('referer_url'))) {
+            $url = Mage::helper('adminhtml')->getUrl();
+        }
+        $this->getResponse()->setRedirect($url);
     }
     
     protected function _isAllowed()

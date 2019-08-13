@@ -2,7 +2,7 @@
 <config>
     <modules> 
         <Freento_Aconnector>
-            <version>1.0.2.2</version>
+            <version>1.0.3</version>
         </Freento_Aconnector>
     </modules>
     <global>
@@ -67,7 +67,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <freentoaconnectoradmin before="Mage_Adminhtml">Freento_Aconnector_Adminhtml</freentoaconnectoradmin>
+                        <aconnector before="Mage_Adminhtml">Freento_Aconnector_Adminhtml</aconnector>
                     </modules>
                 </args>
             </adminhtml>

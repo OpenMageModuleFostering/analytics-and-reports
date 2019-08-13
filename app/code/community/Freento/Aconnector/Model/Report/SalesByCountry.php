@@ -9,8 +9,8 @@ class Freento_Aconnector_Model_Report_SalesbyCountry extends Freento_Aconnector_
     {
         
         $this->_fromParams = array(
-            'qty' => 'sum(qty_refunded)',
-            'total' => 'sum(base_amount_refunded)'
+            'qty' => 'sum(qty_invoiced) - sum(qty_refunded)',
+            'total' => 'sum(base_row_invoiced) - sum(base_amount_refunded)',
         );
         
         $this->getSelect()

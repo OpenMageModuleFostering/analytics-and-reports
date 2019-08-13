@@ -1,7 +1,6 @@
 <?php
 abstract class Freento_Aconnector_Model_Report_Grouped_Abstract extends Freento_Aconnector_Model_Report_Abstract
 {
-    protected $_fromParams = array();
     
     protected function _prepareGroup()
     {

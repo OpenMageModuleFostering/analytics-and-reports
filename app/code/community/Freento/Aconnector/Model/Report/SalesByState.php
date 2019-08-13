@@ -10,7 +10,7 @@ class Freento_Aconnector_Model_Report_SalesByState extends Freento_Aconnector_Mo
     {
         $this->_fromParams = array(
             'qty' => 'sum(qty_invoiced) - sum(qty_refunded)',
-            'total' => 'sum(qty_invoiced * price) - sum(qty_refunded * price) - sum(base_discount_invoiced)'
+            'total' => 'sum(base_row_invoiced) - sum(base_amount_refunded)',
         );
         
         $this->getSelect()

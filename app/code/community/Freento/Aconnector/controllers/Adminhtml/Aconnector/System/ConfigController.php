@@ -1,6 +1,6 @@
 <?php
 
-class Freento_Aconnector_Adminhtml_Freentoaconnectoradmin_System_ConfigController extends Mage_Adminhtml_Controller_Action
+class Freento_Aconnector_Adminhtml_Aconnector_System_ConfigController extends Mage_Adminhtml_Controller_Action
 {
 
     public function disconnectAction()

@@ -20,7 +20,7 @@ class Freento_Aconnector_Block_Adminhtml_System_Config_Form_Disconnect extends M
         }
         
         $this->setElement($element);
-        $url = $this->getUrl('adminhtml/freentoaconnectoradmin_system_config/disconnect');
+        $url = $this->getUrl('adminhtml/aconnector_system_config/disconnect');
 
         $html = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setType('button')

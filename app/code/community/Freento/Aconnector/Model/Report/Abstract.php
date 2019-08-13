@@ -14,6 +14,7 @@ abstract class Freento_Aconnector_Model_Report_Abstract extends Mage_Core_Model_
     protected $_storeIds = array();
     protected $_mainReportResults;
     
+    protected $_fromParams = array();
     protected $_mainTablePrefix = 'main_table';
     
     protected function _getMainTablePrefix()

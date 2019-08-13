@@ -47,8 +47,8 @@ class Freento_Aconnector_Model_Product
                 'label' => 'Attribute Set',
                 'type' => 'string'
             ),
-            'store_id' => array(
-                'label' => 'Store',
+            'websites' => array(
+                'label' => 'Websites',
                 'type' => 'string'
             ),
             'final_price' => array(

@@ -7,7 +7,7 @@ class Freento_Aconnector_Model_Report_SalesByProduct extends Freento_Aconnector_
         if (isset($additionalParams['skus']) && $additionalParams['skus']) {
             $this->_fromParams = array(
                 'qty' => 'sum(qty_invoiced) - sum(qty_refunded)',
-                'total' => 'sum(qty_invoiced*price) - sum(qty_refunded*price) - sum(' . $this->_mainTablePrefix . '.base_discount_invoiced)'
+                'total' => 'sum(base_row_invoiced) - sum(base_amount_refunded)',
             );
             
             $this->_prepareGroup();
